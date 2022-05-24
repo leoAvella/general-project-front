@@ -1,0 +1,39 @@
+<ng-template  #content let-c="close" let-d="dismiss" style="" >
+    <div class="modal-body"  >
+        <app-login ></app-login>
+    </div>
+</ng-template>
+
+<div class="btn-flotante">
+
+    <ngb-accordion #acc="ngbAccordion">
+        <ngb-panel id="toggle-1">
+            <ng-template ngbPanelTitle >
+                <div class="align-items-center bg-warning d-flex feed-icon justify-content-center round round-sm rounded-circle text-white">
+                    <i class="bi bi-clock"></i>
+                </div>
+            </ng-template>
+            <ng-template ngbPanelContent>
+                <div class="timer">
+                    <h4>  <i class="bi bi-calendar"></i> </h4>
+                    <span id="days"> {{dataC?.dayofWeek}} </span> -
+                    <span id="hours"> {{dataC?.hour}} </span> :
+                    <span id="minutes"> {{dataC?.minutes}} </span>:
+                    <span id="seconds"> {{dataC?.secont}} </span>
+                    <span> {{dataC?.ampm}}</span>
+                </div>
+
+                <div class="timer">
+                    <h4> Tiempo de sesión </h4>
+                    <span class="counter-down"> {{dataS?.dayofWeek}} </span> <span *ngIf="dataS?.dayofWeek" >:</span>
+                    <span class="counter-down"> {{dataS?.hour}}  : </span>
+                    <span class="counter-down"> {{transformTime(dataS?.minutes)}} : </span>
+                    <span class="counter-down"> {{transformTime(dataS?.secont)}} </span>
+                </div>
+
+            </ng-template>
+        </ngb-panel>
+    </ngb-accordion>
+
+
+</div>
